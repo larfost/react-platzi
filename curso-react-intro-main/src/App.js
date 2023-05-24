@@ -16,11 +16,22 @@ const defaultTodos = [
   { text: 'correr', completed: false }
 ]
 function App() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+  const [searchValue, setSearchValue] = React.useState();
+    useState('');
+
+  const comletedTodos = todos.filter(todo => !!todo.completed).length ;
+  const totalTodos  = todos.length;
+
   return (
     <div className="App">
-      <TodoCounter  completed={16} total={30}/>
+      <TodoCounter  completed={completedTodos} 
+      total={ totalTodos}/>
 
-      <TodoSearch />
+      <TodoSearch 
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+      />
 
       <TodoList>
 
